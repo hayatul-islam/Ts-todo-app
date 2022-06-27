@@ -1,4 +1,4 @@
-import { Button, IconButton, Paper, Typography } from '@mui/material';
+import { IconButton, Paper, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useCallback, useEffect, useReducer, useRef } from 'react';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
@@ -6,8 +6,8 @@ interface Todo {
     id: number,
     text: string
 }
-type ActionType = { type: 'ADD'; text: string } | { type: 'REMOVE'; id: number }
-const initialTodo: Todo[] = JSON.parse(localStorage.getItem('todos') || '');
+type ActionType = { type: 'ADD'; text: string } | { type: 'REMOVE'; id: number };
+const initialTodo: Todo[] = (JSON.parse(localStorage?.getItem('todos') || ''));
 
 const Todos = () => {
 
@@ -77,7 +77,7 @@ const Todos = () => {
                     </Box>
                     <Box sx={{ pt: 5 }}>
                         {
-                            todos.map(todo => <Box
+                            todos?.map(todo => <Box
                                 key={todo.id}
                                 sx={{
                                     border: '1px solid #c2c4c9',
