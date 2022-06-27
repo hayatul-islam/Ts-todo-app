@@ -7,7 +7,8 @@ interface Todo {
     text: string
 }
 type ActionType = { type: 'ADD'; text: string } | { type: 'REMOVE'; id: number };
-const initialTodo: Todo[] = (JSON.parse(localStorage?.getItem('todos') || ''));
+const local = JSON?.parse(localStorage?.getItem('todos') || JSON.stringify(''));
+const initialTodo: Todo[] = local?.length !== 0 ? local : [];
 
 const Todos = () => {
 
